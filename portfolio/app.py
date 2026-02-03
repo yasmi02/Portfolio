@@ -8,16 +8,15 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS with Dark Theme
+# Custom CSS with Modern Design
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
     /* Dark theme background */
-.stApp {
-    background-color: #000000;
-    color: #FFFFFF;
-}
+    .main {
+        background: #000000;
+    }
 
     .block-container {
         padding-top: 1rem !important;
@@ -31,7 +30,7 @@ st.markdown("""
 
     /* Hero Section */
     .hero-box {
-        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
+        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 50%, #FF8C42 100%);
         padding: 4rem 3rem;
         border-radius: 30px;
         text-align: center;
@@ -39,7 +38,6 @@ st.markdown("""
         box-shadow: 0 25px 80px rgba(255, 107, 53, 0.5);
         position: relative;
         overflow: hidden;
-        border: 2px solid #FF6B35;
     }
 
     .hero-box::before {
@@ -49,8 +47,7 @@ st.markdown("""
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
-                    radial-gradient(circle at 70% 60%, rgba(0, 217, 255, 0.08) 0%, transparent 50%);
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         animation: pulse 4s ease-in-out infinite;
     }
 
@@ -67,14 +64,14 @@ st.markdown("""
         margin: 0 0 1rem 0;
         position: relative;
         z-index: 2;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .hero-subtitle {
         font-family: 'Outfit', sans-serif;
         font-size: 1.8rem;
         font-weight: 600;
-        color: white;
+        color: rgba(255,255,255,0.95);
         margin: 1rem 0;
         position: relative;
         z-index: 2;
@@ -83,7 +80,7 @@ st.markdown("""
     .hero-desc {
         font-family: 'Outfit', sans-serif;
         font-size: 1.15rem;
-        color: white;
+        color: rgba(255,255,255,0.85);
         max-width: 750px;
         margin: 1.5rem auto 0 auto;
         line-height: 1.7;
@@ -100,47 +97,30 @@ st.markdown("""
     }
 
     .stat-box {
-        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
-        border: 2px solid #FF6B35;
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 184, 1, 0.1) 100%);
+        border: 2px solid rgba(255, 107, 53, 0.3);
         padding: 2rem;
         border-radius: 20px;
         text-align: center;
         transition: all 0.3s ease;
         backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .stat-box::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        transition: opacity 0.3s ease;
     }
 
     .stat-box:hover {
         transform: translateY(-8px);
-        border-color: #F7B801;
-        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.6);
-    }
-
-    .stat-box:hover::before {
-        opacity: 1;
+        border-color: #FF6B35;
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(247, 184, 1, 0.2) 100%);
     }
 
     .stat-number {
         font-family: 'Space Grotesk', sans-serif;
         font-size: 3.5rem;
         font-weight: 700;
-        color: white;
+        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         margin-bottom: 0.5rem;
-        position: relative;
-        z-index: 1;
     }
 
     .stat-label {
@@ -148,8 +128,6 @@ st.markdown("""
         color: white;
         font-size: 1.1rem;
         font-weight: 600;
-        position: relative;
-        z-index: 1;
     }
 
     /* Section Title */
@@ -157,7 +135,7 @@ st.markdown("""
         font-family: 'Space Grotesk', sans-serif;
         font-size: 3rem;
         font-weight: 700;
-        color: #E8EAED;
+        color: white;
         text-align: center;
         margin: 4rem 0 2.5rem 0;
         position: relative;
@@ -175,8 +153,8 @@ st.markdown("""
 
     /* Content Box */
     .content-box {
-        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
-        border: 2px solid #FF6B35;
+        background: rgba(10, 10, 10, 0.8);
+        border: 2px solid rgba(255, 107, 53, 0.3);
         padding: 2rem;
         border-radius: 20px;
         margin: 1.5rem 0;
@@ -185,9 +163,9 @@ st.markdown("""
     }
 
     .content-box:hover {
-        border-color: #F7B801;
+        border-color: rgba(255, 107, 53, 0.6);
         transform: translateX(10px);
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
     }
 
     .content-title {
@@ -200,7 +178,7 @@ st.markdown("""
 
     .content-subtitle {
         font-family: 'Outfit', sans-serif;
-        color: white;
+        color: #FF8C42;
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 0.5rem;
@@ -208,8 +186,8 @@ st.markdown("""
 
     .content-date {
         display: inline-block;
-        background: white;
-        color: #FF6B35;
+        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
+        color: white;
         padding: 0.4rem 1.2rem;
         border-radius: 20px;
         font-size: 0.9rem;
@@ -219,19 +197,15 @@ st.markdown("""
 
     .content-text {
         font-family: 'Outfit', sans-serif;
-        color: white;
+        color: rgba(255,255,255,0.75);
         font-size: 1.05rem;
         line-height: 1.6;
     }
 
-    .content-text strong {
-        color: white;
-    }
-
     /* Project Card */
     .project-card {
-        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
-        border: 2px solid #FF6B35;
+        background: rgba(10, 10, 10, 0.8);
+        border: 2px solid rgba(255, 107, 53, 0.3);
         padding: 2rem;
         border-radius: 20px;
         margin: 1.5rem 0;
@@ -247,7 +221,7 @@ st.markdown("""
         left: 0;
         width: 100%;
         height: 4px;
-        background: white;
+        background: linear-gradient(90deg, #FF6B35 0%, #F7B801 100%);
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -257,173 +231,178 @@ st.markdown("""
     }
 
     .project-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        border-color: #F7B801;
-        box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
+        border-color: #FF6B35;
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
     }
 
     .project-icon {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
-        display: inline-block;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     }
 
     /* Tech Badge */
     .tech-badge {
         display: inline-block;
-        background: white;
-        color: #FF6B35;
+        background: rgba(255, 107, 53, 0.2);
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        color: #FFB380;
         padding: 0.5rem 1rem;
         border-radius: 20px;
         margin: 0.3rem;
         font-size: 0.9rem;
-        font-weight: 600;
-        border: 1px solid white;
-        transition: all 0.3s ease;
-    }
-
-    .tech-badge:hover {
-        background: #000000;
-        color: white;
-        transform: translateY(-2px);
-        border-color: white;
+        font-weight: 500;
+        font-family: 'Outfit', sans-serif;
     }
 
     /* Contact Card */
     .contact-card {
-        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%);
-        border: 2px solid #FF6B35;
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 184, 1, 0.1) 100%);
+        border: 2px solid rgba(255, 107, 53, 0.3);
         padding: 2rem;
         border-radius: 20px;
         text-align: center;
         transition: all 0.3s ease;
-        margin-bottom: 1rem;
     }
 
     .contact-card:hover {
-        transform: translateY(-10px);
-        border-color: #F7B801;
-        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.6);
+        border-color: #FF6B35;
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
     }
 
     .contact-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     }
 
     .contact-title {
         font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 700;
         color: white;
-        margin-bottom: 0.5rem;
+        margin: 0.5rem 0;
     }
 
     .contact-text {
         font-family: 'Outfit', sans-serif;
-        color: white;
+        color: rgba(255,255,255,0.7);
         font-size: 0.95rem;
     }
 
-    /* Button Styling */
-    div.stButton > button {
+    /* Buttons */
+    .stButton button {
+        width: 100%;
         background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%) !important;
         color: white !important;
         border: none !important;
-        border-radius: 50px !important;
         padding: 0.8rem 2rem !important;
-        font-weight: 600 !important;
-        font-size: 1rem !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3) !important;
-    }
-
-    div.stButton > button:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4) !important;
-    }
-
-    /* Form Inputs */
-    .stTextInput input, .stTextArea textarea {
-        background: #222222 !important;
-        border: 2px solid #FF6B35 !important;
         border-radius: 15px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3) !important;
+    }
+
+    .stButton button:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5) !important;
+    }
+
+    /* Link buttons styling */
+    a[data-testid="stLinkButton"] {
+        text-decoration: none !important;
+    }
+
+    a[data-testid="stLinkButton"] > button {
+        background: linear-gradient(135deg, #FF6B35 0%, #F7B801 100%) !important;
         color: white !important;
-        padding: 1rem !important;
-        font-size: 1rem !important;
+        font-weight: 700 !important;
+        border: none !important;
+    }
+
+    /* Text styling */
+    h1, h2, h3 {
+        font-family: 'Space Grotesk', sans-serif !important;
+        color: white !important;
+    }
+
+    p, div, span, label {
+        font-family: 'Outfit', sans-serif !important;
+        color: rgba(255,255,255,0.85) !important;
+    }
+
+    /* Form styling */
+    .stTextInput input, .stTextArea textarea {
+        background: rgba(10, 10, 10, 0.9) !important;
+        border: 2px solid rgba(255, 107, 53, 0.3) !important;
+        color: white !important;
+        border-radius: 15px !important;
+        font-family: 'Outfit', sans-serif !important;
     }
 
     .stTextInput input:focus, .stTextArea textarea:focus {
-        border-color: #F7B801 !important;
-        box-shadow: 0 0 20px rgba(255, 107, 53, 0.5) !important;
-    }
-
-    /* Success/Error Messages */
-    .stSuccess {
-        background: rgba(0, 217, 255, 0.1) !important;
-        border: 2px solid #00D9FF !important;
-        border-radius: 15px !important;
-        color: #00D9FF !important;
-    }
-
-    .stError {
-        background: rgba(255, 107, 53, 0.1) !important;
-        border: 2px solid #FF6B35 !important;
-        border-radius: 15px !important;
-        color: #FF6B35 !important;
+        border-color: #FF6B35 !important;
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.4) !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Initialize session state
+# Navigation (Top Menu)
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+with col1:
+    home_btn = st.button("🏠 Home", use_container_width=True)
+with col2:
+    about_btn = st.button("👤 About", use_container_width=True)
+with col3:
+    exp_btn = st.button("💼 Experience", use_container_width=True)
+with col4:
+    skills_btn = st.button("🛠️ Skills", use_container_width=True)
+with col5:
+    projects_btn = st.button("🚀 Projects", use_container_width=True)
+with col6:
+    contact_btn = st.button("📧 Contact", use_container_width=True)
+
+# Determine which section to show
 if 'current_section' not in st.session_state:
     st.session_state.current_section = 'home'
 
-# Navigation
-col1, col2, col3, col4, col5, col6 = st.columns(6)
-
-with col1:
-    if st.button("🏠 Home", use_container_width=True):
-        st.session_state.current_section = 'home'
-with col2:
-    if st.button("👤 About", use_container_width=True):
-        st.session_state.current_section = 'about'
-with col3:
-    if st.button("💼 Experience", use_container_width=True):
-        st.session_state.current_section = 'experience'
-with col4:
-    if st.button("🛠️ Skills", use_container_width=True):
-        st.session_state.current_section = 'skills'
-with col5:
-    if st.button("🚀 Projects", use_container_width=True):
-        st.session_state.current_section = 'projects'
-with col6:
-    if st.button("📧 Contact", use_container_width=True):
-        st.session_state.current_section = 'contact'
+if home_btn:
+    st.session_state.current_section = 'home'
+elif about_btn:
+    st.session_state.current_section = 'about'
+elif exp_btn:
+    st.session_state.current_section = 'experience'
+elif skills_btn:
+    st.session_state.current_section = 'skills'
+elif projects_btn:
+    st.session_state.current_section = 'projects'
+elif contact_btn:
+    st.session_state.current_section = 'contact'
 
 # HOME SECTION
 if st.session_state.current_section == 'home':
     st.markdown("""
         <div class="hero-box">
             <div class="hero-title">Yasemin Adatepe</div>
-            <div class="hero-subtitle">Software Developer & Educator</div>
+            <div class="hero-subtitle">UI/UX Designer & Frontend Developer</div>
             <div class="hero-desc">
-               Software developer with an education background, focused on building thoughtful and practical digital experiences.
+                I design intuitive digital experiences backed by technical implementation skills.
+                Combining education expertise with design thinking to create user-centered solutions.
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-title">Quick Stats</div>', unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns(3)
+    # Stats
+    st.markdown('<div class="stats-container">', unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.markdown("""
             <div class="stat-box">
                 <div class="stat-number">3.51</div>
-                <div class="stat-label">GPA Excellence</div>
+                <div class="stat-label">University GPA</div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -431,39 +410,77 @@ if st.session_state.current_section == 'home':
         st.markdown("""
             <div class="stat-box">
                 <div class="stat-number">6+</div>
-                <div class="stat-label">Programming Languages</div>
+                <div class="stat-label">Design Projects</div>
             </div>
         """, unsafe_allow_html=True)
 
     with col3:
         st.markdown("""
             <div class="stat-box">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Featured Projects</div>
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Certifications</div>
             </div>
         """, unsafe_allow_html=True)
+
+    with col4:
+        st.markdown("""
+            <div class="stat-box">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Internship Experiences</div>
+            </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Quick Contact
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.link_button("📧 Email Me", "mailto:yaseminadatepe200@gmail.com", use_container_width=True)
+    with col2:
+        st.link_button("💼 LinkedIn", "https://www.linkedin.com/in/yasemin-adatepe-a25a4922b/", use_container_width=True)
+    with col3:
+        st.link_button("💻 GitHub", "https://github.com/yasmi02", use_container_width=True)
+    with col4:
+        st.link_button("📱 Call Me", "tel:+905380822742", use_container_width=True)
 
 # ABOUT SECTION
 elif st.session_state.current_section == 'about':
     st.markdown('<div class="section-title">About Me</div>', unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([2, 1])
 
     with col1:
         st.markdown("""
             <div class="content-box">
-                <div class="content-title">🎓 Education</div>
+                <div class="content-title">👋 Hello!</div>
                 <div class="content-text">
-                    <strong>English Language Teaching</strong><br>
-                    MEF University (2020-2025)<br>
-                    GPA: 3.51/4.00<br><br>
-                    <strong>Software Development</strong><br>
-                    Arı IT Academy (2024-Present)<br>
-                    Full-Stack Development Program
+                    I'm a <strong>UI/UX Designer</strong> with a unique background in education and technical development. 
+                    Recently completed a UI & Web Design internship at <strong>Nüans Ajans</strong>, where I gained hands-on 
+                    experience with professional design workflows and real client projects.
+                    <br><br>
+                    Currently working as a Software Developer Apprentice at Arı Bilgi Eğitim Akademisi, I combine 
+                    <strong>design thinking with technical implementation</strong> to create meaningful digital experiences. 
+                    My journey into design started during my teaching years at MEF University, where I discovered 
+                    the power of <strong>user-centered design</strong>. This background allows me to deeply understand 
+                    user needs, create intuitive interfaces, and communicate design decisions effectively to both 
+                    technical and non-technical stakeholders.
                 </div>
             </div>
         """, unsafe_allow_html=True)
 
+        st.markdown("""
+            <div class="content-box">
+                <div class="content-title">🎓 Education</div>
+                <div class="content-subtitle">MEF University | 2020-2025</div>
+                <div class="content-text">
+                    English Language Teaching<br>
+                    <strong>GPA: 3.51</strong>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
         st.markdown("""
             <div class="content-box">
                 <div class="content-title">🏆 Achievements</div>
@@ -473,16 +490,6 @@ elif st.session_state.current_section == 'about':
                     ✅ 5+ full-stack projects<br>
                     ✅ 8+ certifications<br>
                     ✅ Teaching experience<br>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-            <div class="content-box">
-                <div class="content-title">💡 About</div>
-                <div class="content-text">
-                    I’m a software developer with a background in education. I like to combine technical skills with a strong sense of communication. I enjoy building clear, user-friendly applications and learning something new with every project. I am especially interested in Web Design.
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -503,7 +510,9 @@ elif st.session_state.current_section == 'experience':
     st.markdown('<div class="section-title">Work Experience</div>', unsafe_allow_html=True)
 
     experiences = [
-        ("July 2025 - Present", "Software Developer Apprentice", "Arı Bilgi Eğitim Akademisi",
+        ("December 2025 (15 days)", "UI Design & Web Design Intern", "Nüans Ajans",
+         "Gained hands-on experience in professional design workflow, creating UI mockups and web design assets. Worked on real client projects and learned industry-standard design practices."),
+        ("July 2025 - December 2025", "Software Developer Apprentice", "Arı Bilgi Eğitim Akademisi",
          "Developing software solutions and expanding technical expertise in full-stack development with Python, Java, and modern frameworks."),
         ("September 2024 - May 2025", "English Teacher Intern", "Hüseyin Avni Sözen Anadolu Lisesi",
          "Facilitated engaging English language instruction and developed creative teaching methodologies for high school students."),
@@ -525,35 +534,35 @@ elif st.session_state.current_section == 'experience':
 
 # SKILLS SECTION
 elif st.session_state.current_section == 'skills':
-    st.markdown('<div class="section-title">Skills & Technologies</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Skills & Expertise</div>', unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("""
             <div class="content-box">
-                <div class="content-title">💻 Programming Languages</div>
+                <div class="content-title">🎨 Design Skills</div>
                 <div style="margin-top: 1rem;">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Java</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">C#</span>
-                    <span class="tech-badge">HTML</span>
-                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">Figma</span>
+                    <span class="tech-badge">Wireframing</span>
+                    <span class="tech-badge">Prototyping</span>
+                    <span class="tech-badge">User Research</span>
+                    <span class="tech-badge">Usability Testing</span>
+                    <span class="tech-badge">UI Design</span>
+                    <span class="tech-badge">Design Systems</span>
                 </div>
             </div>
         """, unsafe_allow_html=True)
 
         st.markdown("""
             <div class="content-box">
-                <div class="content-title">🛠️ Technologies & Tools</div>
+                <div class="content-title">💻 Frontend Development</div>
                 <div style="margin-top: 1rem;">
-                    <span class="tech-badge">JavaFX</span>
-                    <span class="tech-badge">Java Swing</span>
-                    <span class="tech-badge">SQLite</span>
-                    <span class="tech-badge">FXML</span>
-                    <span class="tech-badge">Git</span>
-                    <span class="tech-badge">UI/UX Design</span>
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Responsive Design</span>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -561,12 +570,13 @@ elif st.session_state.current_section == 'skills':
     with col2:
         st.markdown("""
             <div class="content-box">
-                <div class="content-title">🎯 Specializations</div>
+                <div class="content-title">⚡ Technical Advantage</div>
                 <div style="margin-top: 1rem;">
-                    <span class="tech-badge">Deep Learning</span>
-                    <span class="tech-badge">Full-Stack Development</span>
-                    <span class="tech-badge">Database Management</span>
-                    <span class="tech-badge">Teaching & Mentoring</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">SQLite</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">UI Implementation</span>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -576,36 +586,43 @@ elif st.session_state.current_section == 'skills':
                 <div class="content-title">📜 Certifications</div>
                 <div class="content-text">
                     ✅ Python (100/100) - Arı IT Academy<br>
-                    ✅ Deep Learning - Arı IT Academy<br>
-                    ✅ C# - Arı IT Academy<br>
-                    ✅ Marketing in Digital World - University of Illinois Urbana-Champaign<br>
-                    ✅ Psychological First Aid - Johns Hopkins University<br>
+                    ✅ Marketing in Digital World - UIUC<br>
+                    ✅ Psychological First Aid - Johns Hopkins<br>
                     ✅ Understanding AI - MEF University<br>
-                    ✅ Creating Behavioral Change - Wesleyan University<br> 
+                    ✅ Creating Behavioral Change - Wesleyan<br>
+                    ✅ Healing With The Arts - UF
                 </div>
             </div>
         """, unsafe_allow_html=True)
 
 # PROJECTS SECTION
 elif st.session_state.current_section == 'projects':
-    st.markdown('<div class="section-title">Featured Projects</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Design Projects</div>', unsafe_allow_html=True)
 
     projects = [
+        ("📄", "PDF AI Assistant",
+         "Designed an intelligent document interaction interface that makes PDF analysis intuitive and accessible. Created a conversational UI pattern that simplifies complex document queries with clear visual hierarchy and smart information retrieval.",
+         ["UI/UX Design", "Conversational UI", "Python", "AI Integration"]),
+
         ("🌙", "Sleep Tracker",
-         "A comprehensive sleep monitoring application with audio playback, data persistence, and beautiful UI/UX design.",
-         ["Java", "JavaFX", "SQLite", "FXML", "JLayer"]),
-        ("📝", "BlogHub",
-         "A full-featured Python-based blogging platform with modern web interface and content management.",
-         ["Python", "HTML", "CSS", "Web Dev"]),
-        ("🎵", "Mp3 & Mp4 Converter",
-         "A versatile media conversion tool with intuitive interface for audio and video formats.",
-         ["Python", "HTML", "CSS", "JavaScript"]),
+         "Designed a calming sleep monitoring experience focusing on minimal UI and emotional usability. Created intuitive data visualization for sleep patterns with soothing color palette and gentle animations.",
+         ["UI Design", "User Research", "Prototyping", "Java", "JavaFX"]),
+
         ("📔", "Cozy Diary App",
-         "A beautifully designed personal diary with rich UI/UX features and secure data storage.",
-         ["Java", "Java Swing", "UI/UX Design"]),
+         "Designed a journaling experience emphasizing privacy and emotional comfort. Researched user needs for personal reflection spaces and created a soft, welcoming interface with thoughtful micro-interactions.",
+         ["UI/UX Design", "User Testing", "Wireframing", "Java Swing"]),
+
         ("📚", "Smart Study Assistant",
-         "An intelligent study management tool with data export and productivity analytics.",
-         ["Python", "SQLite", "CSV Export"])
+         "Created an intuitive study management interface that reduces cognitive load. Focused on clear information hierarchy and progress visualization to motivate student engagement.",
+         ["Information Architecture", "UI Design", "Python", "SQLite"]),
+
+        ("📝", "BlogHub",
+         "Designed a clean blogging platform with focus on readability and content discovery. Implemented responsive layouts and accessible design patterns for diverse user needs.",
+         ["Web Design", "Responsive Design", "Python", "HTML/CSS"]),
+
+        ("🎵", "Media Converter",
+         "Simplified complex file conversion process through intuitive interface design. Created clear user flows and visual feedback systems for technical operations.",
+         ["UX Design", "User Flows", "Python", "JavaScript"])
     ]
 
     for icon, title, desc, tech in projects:
@@ -693,3 +710,10 @@ elif st.session_state.current_section == 'contact':
                 else:
                     st.error("⚠️ Please fill in all fields.")
 
+# Footer
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown("""
+    <div style="text-align: center; padding: 2rem; background: rgba(10, 10, 10, 0.9); 
+         border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 20px; margin-top: 3rem;">
+        <p style="margin: 0; font-size: 1.1rem; color: white; font-weight: 600;">© 2026 Yasemin Adatepe | made with Python</p>
+    </div>
