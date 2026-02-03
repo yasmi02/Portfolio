@@ -417,7 +417,7 @@ if st.session_state.current_section == 'home':
     with col3:
         st.markdown("""
             <div class="stat-box">
-                <div class="stat-number">6+</div>
+                <div class="stat-number">5</div>
                 <div class="stat-label">Certifications</div>
             </div>
         """, unsafe_allow_html=True)
@@ -425,7 +425,7 @@ if st.session_state.current_section == 'home':
     with col4:
         st.markdown("""
             <div class="stat-box">
-                <div class="stat-number">4+</div>
+                <div class="stat-number">2</div>
                 <div class="stat-label">Internship Experiences</div>
             </div>
         """, unsafe_allow_html=True)
@@ -488,7 +488,7 @@ elif st.session_state.current_section == 'about':
                     ✅ Python course: <strong>100/100</strong><br>
                     ✅ Deep Learning certified<br>
                     ✅ 5+ full-stack projects<br>
-                    ✅ 8+ certifications<br>
+                    ✅ 5 certifications<br>
                     ✅ Teaching experience<br>
                 </div>
             </div>
@@ -510,14 +510,10 @@ elif st.session_state.current_section == 'experience':
     st.markdown('<div class="section-title">Work Experience</div>', unsafe_allow_html=True)
 
     experiences = [
-        ("December 2025 (15 days)", "UI Design & Web Design Intern", "Nüans Ajans",
+        ("January 2026 (15 days)", "UI Design & Web Design Intern", "Nüans Ajans",
          "Gained hands-on experience in professional design workflow, creating UI mockups and web design assets. Worked on real client projects and learned industry-standard design practices."),
-        ("July 2025 - December 2025", "Software Developer Apprentice", "Arı Bilgi Eğitim Akademisi",
+        ("July 2025 - Present", "Software Developer Apprentice", "Arı Bilgi Eğitim Akademisi",
          "Developing software solutions and expanding technical expertise in full-stack development with Python, Java, and modern frameworks."),
-        ("September 2024 - May 2025", "English Teacher Intern", "Hüseyin Avni Sözen Anadolu Lisesi",
-         "Facilitated engaging English language instruction and developed creative teaching methodologies for high school students."),
-        ("September 2023 - May 2024", "English Teacher Intern", "Çamlıca Eyüboğlu Koleji",
-         "Delivered comprehensive English language education and mentored students in a prestigious private school environment."),
         ("June 2020 - August 2020", "Secretary", "Eray Law Office",
          "Managed administrative operations and client communications in a professional legal environment.")
     ]
@@ -587,10 +583,9 @@ elif st.session_state.current_section == 'skills':
                 <div class="content-text">
                     ✅ Python (100/100) - Arı IT Academy<br>
                     ✅ Marketing in Digital World - UIUC<br>
-                    ✅ Psychological First Aid - Johns Hopkins<br>
+                    ✅ Deep Learning (100/100) - Arı IT Academy<br>
                     ✅ Understanding AI - MEF University<br>
-                    ✅ Creating Behavioral Change - Wesleyan<br>
-                    ✅ Healing With The Arts - UF
+                    ✅ Software Expertise 100/100) - Arı IT Academy<br>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -709,11 +704,3 @@ elif st.session_state.current_section == 'contact':
                     st.success("✅ Thank you for your message! I'll get back to you soon.")
                 else:
                     st.error("⚠️ Please fill in all fields.")
-
-# Footer
-st.markdown("<br><br>", unsafe_allow_html=True)
-st.markdown("""
-    <div style="text-align: center; padding: 2rem; background: rgba(10, 10, 10, 0.9); 
-         border: 2px solid rgba(255, 107, 53, 0.3); border-radius: 20px; margin-top: 3rem;">
-        <p style="margin: 0; font-size: 1.1rem; color: white; font-weight: 600;">© 2026 Yasemin Adatepe | made with Python</p>
-    </div>
